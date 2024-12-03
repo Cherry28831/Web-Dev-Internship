@@ -5,12 +5,12 @@ let currentIndex = 0;
 const items = document.querySelectorAll('.fashion-item');
 const totalItems = items.length;
 const maxFontSize = 5;
-const minFontSize = 2; 
-const scrollStart = 150; 
+const minFontSize = 2;
+const scrollStart = 150;
 const scrollThreshold = 100;
 
 function setInitialLogoPosition() {
-    logo.style.top = '27%'; 
+    logo.style.top = '27%';
 }
 
 window.addEventListener('scroll', () => {
@@ -20,7 +20,7 @@ window.addEventListener('scroll', () => {
         logo.classList.add('sticky');
         const newSize = Math.max(minFontSize, maxFontSize - (scrollY / scrollStart) * (maxFontSize - minFontSize));
         logo.style.fontSize = `${newSize}em`;
-        logo.style.top = '10px'; 
+        logo.style.top = '10px';
     } else {
         logo.classList.remove('sticky');
         logo.style.fontSize = `${maxFontSize}em`;
@@ -30,38 +30,29 @@ window.addEventListener('scroll', () => {
     if (scrollY > scrollThreshold) {
         navbar.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled'); 
+        navbar.classList.remove('scrolled');
     }
 });
 
-window.addEventListener("wheel", (event) => {
-    event.preventDefault();
-    const deltaY = event.deltaY; 
-    const speedFactor = 2;  
-    window.scrollBy({
-        top: deltaY / speedFactor, 
-        left: 0,
-        behavior: 'smooth'
-    });
-}, { passive: false });
-
 setInitialLogoPosition();
 
+// Carousel Logic for Homepage Content
 function nextSlide() {
     currentIndex++;
 
     if (currentIndex >= totalItems) {
         setTimeout(() => {
-            currentIndex = 0; 
-            homepageContent.style.transition = 'none'; 
-            homepageContent.style.transform = `translateX(0)`; 
+            currentIndex = 0;
+            homepageContent.style.transition = 'none';
+            homepageContent.style.transform = `translateX(0)`;
         }, 500);
     } else {
-        homepageContent.style.transition = 'transform 0.5s ease'; 
+        homepageContent.style.transition = 'transform 0.5s ease';
     }
 
-    const offset = -currentIndex * 200; 
-    homepageContent.style.transform = `translateX(${offset}px)`; 
+    const offset = -currentIndex * 200;
+    homepageContent.style.transform = `translateX(${offset}px)`;
 }
 
-setInterval(nextSlide, 3000);
+// Carousel Speed Adjusted for Faster Transitions
+setInterval(nextSlide, 2000);
