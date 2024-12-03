@@ -307,3 +307,76 @@ footer {
 .map-container {
     flex-shrink: 0;
 }
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2em;
+        top: 10px;
+        left: 10%;
+    }
+
+    .homepage-heading {
+        font-size: 2.2em;
+    }
+
+    .hero-image {
+        width: 90%;
+        height: auto;
+    }
+
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .nav-links a {
+        font-size: 1em;
+    }
+
+    .tagline {
+        font-size: 1.2em;
+        top: 40%;
+        width: 80%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .homepage-heading {
+        font-size: 1.8em;
+    }
+
+    .stat-number {
+        font-size: 2em;
+    }
+
+    .tagline {
+        font-size: 1em;
+    }
+
+    .button {
+        font-size: 0.9em;
+        width: 100px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+}
